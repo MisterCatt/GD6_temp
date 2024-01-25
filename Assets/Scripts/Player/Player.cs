@@ -27,6 +27,18 @@ public class Player : MonoBehaviour
         walkPoint.position = new Vector2(gridPosition.x + 0.5f, gridPosition.y + 0.5f);
     }
 
+    void OnPause()
+    {
+        EventManager.Instance.Pause();
+    }
+
+    void OnUnPause()
+    {
+        EventManager.Instance.UnPause();
+    }
+
+    
+
     void OnMove(InputValue value)
     {
         if (RythmManager.Instance.CurrentBeat != OnBeat.BEAT)

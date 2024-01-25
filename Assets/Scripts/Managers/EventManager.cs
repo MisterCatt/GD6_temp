@@ -18,4 +18,26 @@ public class EventManager : MonoBehaviour
         RythmManager.Instance.CurrentBeat = global::OnBeat.BEAT;
         OnBeat?.Invoke(); 
     }
+
+    public event Action<GameManager.GameState> ChangeGameState;
+    public event Action OnUnPause;
+
+    public void Pause()
+    {
+        ChangeGameState?.Invoke(GameManager.GameState.PAUSED);
+    }
+
+    public void UnPause()
+    {
+        if (GameManager.Instance.state == GameManager.GameState.PAUSED)
+        {
+            ChangeGameState?.Invoke(GameManager.GameState.RUNNING);
+        }
+    }
+
+    public void GameManagerUnPause()
+    {
+        OnUnPause?.Invoke();
+    }
+
 }
