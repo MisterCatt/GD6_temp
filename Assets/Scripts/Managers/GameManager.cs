@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public enum GameState { PAUSED, MENU, RUNNING}
     public GameState state;
 
+    public enum ScreenFocus { LEFT,RIGHT }
+    public ScreenFocus currentScreen;
+
     bool gamePaused = false;
 
     private void Awake()
@@ -18,8 +21,23 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        EventManager.Instance.ChangeGameState += ChangeGameState;
+        EventManager.Instance.OnChangeGameState += ChangeGameState;
+        EventManager.Instance.OnChangeScreen += ChangeScreen;
+        currentScreen = ScreenFocus.LEFT;
     }
+
+    public void ChangeScreen()
+    {
+        if (currentScreen == ScreenFocus.LEFT)
+        {
+            currentScreen = ScreenFocus.RIGHT;
+        }
+        else
+        {
+            currentScreen = ScreenFocus.LEFT;
+        }
+    }
+
     public void ChangeGameState(GameState newState)
     {
         

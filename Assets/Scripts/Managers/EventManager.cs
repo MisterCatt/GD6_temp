@@ -19,19 +19,19 @@ public class EventManager : MonoBehaviour
         OnBeat?.Invoke(); 
     }
 
-    public event Action<GameManager.GameState> ChangeGameState;
+    public event Action<GameManager.GameState> OnChangeGameState;
     public event Action OnUnPause;
 
     public void Pause()
     {
-        ChangeGameState?.Invoke(GameManager.GameState.PAUSED);
+        OnChangeGameState?.Invoke(GameManager.GameState.PAUSED);
     }
 
     public void UnPause()
     {
         if (GameManager.Instance.state == GameManager.GameState.PAUSED)
         {
-            ChangeGameState?.Invoke(GameManager.GameState.RUNNING);
+            OnChangeGameState?.Invoke(GameManager.GameState.RUNNING);
         }
     }
 
@@ -40,4 +40,22 @@ public class EventManager : MonoBehaviour
         OnUnPause?.Invoke();
     }
 
+    public event Action<int> OnButtonPrompt;
+
+    public void Sword()
+    {
+        OnButtonPrompt?.Invoke(1);
+    }
+
+    public void Shield()
+    {
+        OnButtonPrompt?.Invoke(0);
+    }
+
+    public event Action OnChangeScreen;
+
+    public void ChangeScreen()
+    {
+        OnChangeScreen?.Invoke();
+    }
 }

@@ -27,6 +27,16 @@ public class Player : MonoBehaviour
         walkPoint.position = new Vector2(gridPosition.x + 0.5f, gridPosition.y + 0.5f);
     }
 
+    void OnChangeScreen()
+    {
+        if (GameManager.Instance.currentScreen == GameManager.ScreenFocus.LEFT)
+            GetComponent<PlayerInput>().SwitchCurrentActionMap("Combat");
+        else
+            GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+
+        EventManager.Instance.ChangeScreen();
+    }
+
     void OnPause()
     {
         EventManager.Instance.Pause();
@@ -37,7 +47,15 @@ public class Player : MonoBehaviour
         EventManager.Instance.UnPause();
     }
 
-    
+    void OnSword()
+    {
+        EventManager.Instance.Sword();
+    }
+
+    void OnShield()
+    {
+        EventManager.Instance.Shield();
+    }
 
     void OnMove(InputValue value)
     {

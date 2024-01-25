@@ -18,7 +18,7 @@ public class RythmBlock : MonoBehaviour
 
         StartSpeed = speed;
 
-        EventManager.Instance.ChangeGameState += Pause;
+        EventManager.Instance.OnChangeGameState += Pause;
         EventManager.Instance.OnUnPause += UnPause;
     }
 

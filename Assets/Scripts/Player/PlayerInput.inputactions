@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeScreen",
+                    "type": "Button",
+                    "id": "bbc05015-489a-4e7f-b078-6907676d4399",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,6 +99,17 @@
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b76dabf3-6a99-49bb-959a-820bc2ccdb56",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -98,9 +118,27 @@
             "id": "e7aaa683-b6d7-4a3f-8e08-a45e5df7cf3e",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Sword",
                     "type": "Button",
                     "id": "0334b9f9-cc18-443c-831c-443256831010",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "9067366a-ab90-4748-b7e9-a86fd242834c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeScreen",
+                    "type": "Button",
+                    "id": "0d44393f-bc1b-491c-91b3-177cdfed99bf",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -111,11 +149,33 @@
                 {
                     "name": "",
                     "id": "90e368d6-cc96-4a7b-89a9-c3113f64ccb2",
-                    "path": "",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Sword",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f167ce61-765f-4e98-b793-8da7cc4e8f0e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8683534d-9b45-41fd-bd23-9d247f5c4fac",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScreen",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

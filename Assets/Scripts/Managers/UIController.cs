@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI pauseText;
 
+    [SerializeField]
+    Image rightArrow;
+
 
     public static TextMeshProUGUI timerText;
 
     private void Start()
     {
-        EventManager.Instance.ChangeGameState += togglePauseText;
+        EventManager.Instance.OnChangeGameState += togglePauseText;
+        EventManager.Instance.OnChangeScreen += toggleArrow;
 
 
         timerText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -27,4 +32,14 @@ public class UIController : MonoBehaviour
         else
             pauseText.transform.gameObject.SetActive(false);
     }
+
+    void toggleArrow()
+    {
+        if(!rightArrow.IsActive())
+            rightArrow.gameObject.SetActive(true);
+        else 
+            rightArrow.gameObject.SetActive(false);
+    }
+
+
 }
