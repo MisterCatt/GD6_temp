@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseText: {fileID: 1353833869}
-  rightArrow: {fileID: 0}
+  rightArrow: {fileID: 2069068955}
 --- !u!1 &986281348
 GameObject:
   m_ObjectHideFlags: 0
