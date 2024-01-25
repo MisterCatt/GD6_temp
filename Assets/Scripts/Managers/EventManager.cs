@@ -11,10 +11,11 @@ public class EventManager : MonoBehaviour
         Instance = this;
     }
 
-    public static event Action OnBeat;
+    public event Action OnBeat;
 
     public void Beat()
     {
-        OnBeat?.Invoke();
+        RythmManager.Instance.CurrentBeat = global::OnBeat.BEAT;
+        OnBeat?.Invoke(); 
     }
 }

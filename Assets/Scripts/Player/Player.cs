@@ -43,5 +43,10 @@ public class Player : MonoBehaviour
         {
             transform.position = walkPoint.transform.position;
         }
+
+        if(RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
+        {
+            RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+        }
     }
 }

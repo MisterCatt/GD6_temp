@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum OnBeat { BEAT, OFFBEAT};
@@ -15,15 +16,20 @@ public class RythmManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        EventManager.Instance.OnBeat += Beat;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Beat()
     {
-        
+        StartCoroutine(LingerBeat());
     }
+
+    IEnumerator LingerBeat()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        CurrentBeat = OnBeat.OFFBEAT;
+    } 
 }

@@ -9,15 +9,14 @@ public class RythmChecker : MonoBehaviour
         if (collision.tag != "RythmBlock")
             return;
 
-        RythmManager.Instance.CurrentBeat = OnBeat.BEAT;
         EventManager.Instance.Beat();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag != "RythmBlock")
-            return;
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag != "RythmBlock")
+    //        return;
 
-        RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
-    }
+    //    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+    //}
 }

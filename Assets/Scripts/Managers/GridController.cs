@@ -28,10 +28,12 @@ public class GridController : MonoBehaviour
 
         bounds = FloorMap.cellBounds;
 
-        camera = Camera.main;
-        camera.transform.position = new Vector3(bounds.center.x+10, bounds.center.y, -10);
-
         CreateTilemap();
+
+        camera = Camera.main;
+        //camera.transform.position = new Vector3(bounds.center.x+10, bounds.center.y, -10);
+
+        
     }
     void CreateTilemap()
     {
