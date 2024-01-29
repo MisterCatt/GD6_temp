@@ -43,6 +43,7 @@ public class Screen2Controller : MonoBehaviour
                 if (prompts[step] == CombatPrompts.SWORD)
                 {
                     enemyLives--;
+                    roundSuccess = true;
                 }
                 break;
         }
@@ -79,16 +80,21 @@ public class Screen2Controller : MonoBehaviour
 
                        
         }
+
+        for (int i = 0; i < 4; i++)
+        {
+            picPlaces[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     void resetRound()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             picPlaces[i].GetComponent<SpriteRenderer>().color = Color.white;
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             picPlaces[i].GetComponent<SpriteRenderer>().sprite = picPlacePics[Random.Range(0, 1)];
         }
@@ -99,6 +105,25 @@ public class Screen2Controller : MonoBehaviour
     {
         if (!isMainScreen)
             return;
+
+        if (step > 3)
+        {
+            if (playerLives <= 0)
+            {
+                print("Player Died");
+                Application.Quit();
+                return;
+            }
+
+            if (enemyLives <= 0)
+            {
+                print("Enemy died");
+                GameManager.Instance.ChangeScreen();
+                return;
+            }
+
+            resetRound();
+        }
 
         if (!roundSuccess)
         {
@@ -111,27 +136,6 @@ public class Screen2Controller : MonoBehaviour
         }
 
         step++;
-        roundSuccess = false;
-
-        print(step);
-
-        if(step > 3)
-        {
-            if(playerLives <= 0)
-            {
-                print("Player Died");
-                Application.Quit();
-                return;
-            }
-
-            if(enemyLives <= 0)
-            {
-                print("Enemy died");
-                GameManager.Instance.ChangeScreen();
-                return;
-            }
-
-            resetRound();
-        }
+        roundSuccess = false;        
     }
 }
