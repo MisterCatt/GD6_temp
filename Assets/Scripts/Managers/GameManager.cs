@@ -22,26 +22,25 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.OnChangeGameState += ChangeGameState;
-        EventManager.Instance.OnChangeScreen += ChangeScreen;
         currentScreen = ScreenFocus.LEFT;
     }
 
     public void ChangeScreen()
     {
-        if (currentScreen == ScreenFocus.LEFT)
+        switch (currentScreen)
         {
-            currentScreen = ScreenFocus.RIGHT;
+            case ScreenFocus.LEFT:
+                currentScreen = ScreenFocus.RIGHT;
+                break;
+            case ScreenFocus.RIGHT:
+                currentScreen = ScreenFocus.LEFT;
+                break;
         }
-        else
-        {
-            currentScreen = ScreenFocus.LEFT;
-        }
+        EventManager.Instance.ChangeScreen();
     }
 
     public void ChangeGameState(GameState newState)
     {
-        
-
         switch (newState)
         {
             case GameState.MENU:

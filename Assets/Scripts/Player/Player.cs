@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform walkPoint;
 
+    public int lives = 3;
+
     private void Start()
     {
         UnitManager.Instance.player = gameObject;
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
         else
             GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
 
-        EventManager.Instance.ChangeScreen();
+        GameManager.Instance.ChangeScreen();
     }
 
     void OnPause()
