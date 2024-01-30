@@ -35,10 +35,10 @@ public class UIController : MonoBehaviour
 
     void toggleArrow()
     {
-        if(!rightArrow.IsActive())
-            rightArrow.gameObject.SetActive(true);
-        else 
-            rightArrow.gameObject.SetActive(false);
+        //if(!rightArrow.IsActive())
+        //    rightArrow.gameObject.SetActive(true);
+        //else 
+        //    rightArrow.gameObject.SetActive(false);
     }
 
 

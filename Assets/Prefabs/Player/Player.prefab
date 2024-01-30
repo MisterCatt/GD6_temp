@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkPoint: {fileID: 6035259346031747462}
+  lives: 3
 --- !u!58 &7559659736580791380
 CircleCollider2D:
   m_ObjectHideFlags: 0

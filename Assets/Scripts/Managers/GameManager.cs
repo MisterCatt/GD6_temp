@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject screen1;
+    public GameObject screen2;
 
     public enum GameState { PAUSED, MENU, RUNNING}
     public GameState state;
 
     public enum ScreenFocus { LEFT,RIGHT }
     public ScreenFocus currentScreen;
-
-    bool gamePaused = false;
 
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnChangeGameState += ChangeGameState;
         EventManager.Instance.OnChangeScreen += ChangeScreen;
         currentScreen = ScreenFocus.LEFT;
+        screen1.GetComponent<Pulser>().ShouldPulse = true;
     }
 
     public void ChangeScreen()
@@ -31,17 +32,19 @@ public class GameManager : MonoBehaviour
         if (currentScreen == ScreenFocus.LEFT)
         {
             currentScreen = ScreenFocus.RIGHT;
+            screen1.GetComponent<Pulser>().ShouldPulse = false;
+            screen2.GetComponent<Pulser>().ShouldPulse = true;
         }
         else
         {
             currentScreen = ScreenFocus.LEFT;
+            screen1.GetComponent<Pulser>().ShouldPulse = true;
+            screen2.GetComponent<Pulser>().ShouldPulse = false;
         }
     }
 
     public void ChangeGameState(GameState newState)
     {
-        
-
         switch (newState)
         {
             case GameState.MENU:
@@ -54,6 +57,8 @@ public class GameManager : MonoBehaviour
             case GameState.PAUSED:
                 state = newState;
                 UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("PauseScreen");
+                RythmManager.Instance.Pause();
+                Time.timeScale = 0;
                 break;
 
         }
@@ -68,34 +73,17 @@ public class GameManager : MonoBehaviour
         UIController.timerText.transform.gameObject.SetActive(true);
 
         UIController.timerText.text = "3";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         UIController.timerText.text = "2";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         UIController.timerText.text = "1";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         state = GameState.RUNNING;
         UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
         UIController.timerText.transform.gameObject.SetActive(false);
         EventManager.Instance.GameManagerUnPause();
+        Time.timeScale = 1;
+        RythmManager.Instance.Pause();
     }
-
-    //public void TogglePauseGame()
-    //{
-    //    gamePaused = !gamePaused;
-
-    //    switch (gamePaused)
-    //    {
-    //        case true:
-    //            Time.timeScale = 0;
-
-    //            UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("PauseScreen");
-    //            break;
-    //        case false:
-    //            Time.timeScale = 1;
-
-    //            UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
-    //            break;
-    //    }
-    //}
 }

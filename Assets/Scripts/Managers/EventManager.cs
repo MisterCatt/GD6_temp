@@ -15,7 +15,7 @@ public class EventManager : MonoBehaviour
 
     public void Beat()
     {
-        RythmManager.Instance.CurrentBeat = global::OnBeat.BEAT;
+        //RythmManager.Instance.CurrentBeat = global::OnBeat.BEAT;
         OnBeat?.Invoke(); 
     }
 
@@ -40,16 +40,16 @@ public class EventManager : MonoBehaviour
         OnUnPause?.Invoke();
     }
 
-    public event Action<int> OnButtonPrompt;
+    public event Action OnSword, OnShield;
 
     public void Sword()
     {
-        OnButtonPrompt?.Invoke(1);
+        OnSword?.Invoke();
     }
 
     public void Shield()
     {
-        OnButtonPrompt?.Invoke(0);
+        OnShield?.Invoke();
     }
 
     public event Action OnChangeScreen;
@@ -57,5 +57,12 @@ public class EventManager : MonoBehaviour
     public void ChangeScreen()
     {
         OnChangeScreen?.Invoke();
+    }
+
+    public event Action OnPlayerDamage;
+
+    public void PlayerDamage()
+    {
+        OnPlayerDamage?.Invoke();
     }
 }

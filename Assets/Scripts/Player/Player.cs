@@ -8,15 +8,31 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform walkPoint;
 
+    public int lives = 3;
+
     private void Start()
     {
         UnitManager.Instance.player = gameObject;
         walkPoint.parent = null;
+
+        snapToGrid();
+
+        EventManager.Instance.OnPlayerDamage += playerDamage;
     }
 
     private void FixedUpdate()
     {
-        snapToGrid();
+        
+    }
+
+    void playerDamage()
+    {
+        lives--;
+
+        if(lives <= 0)
+        {
+            print("Player died");
+        }
     }
 
     void snapToGrid()
@@ -69,12 +85,12 @@ public class Player : MonoBehaviour
 
         walkPoint.position = new Vector3(transform.position.x + dir.x, transform.position.y + dir.y);
 
-        if(GridController.FloorMap.HasTile(GridController.FloorMap.WorldToCell(walkPoint.position)))
+        if (GridController.FloorMap.HasTile(GridController.FloorMap.WorldToCell(walkPoint.position)))
         {
             transform.position = walkPoint.transform.position;
         }
 
-        if(RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
+        if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
         {
             RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
         }
