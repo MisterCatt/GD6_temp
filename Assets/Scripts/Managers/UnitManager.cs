@@ -5,6 +5,8 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
+    [SerializeField]
+    GameObject enemyPrefab;
 
     private void Awake()
     {
@@ -15,10 +17,7 @@ public class UnitManager : MonoBehaviour
 
     public List<GameObject> enemyList;
 
-    public List<Vector3Int> enemySpawnPoints = new List<Vector3Int>();
-
-    [SerializeField]
-    GameObject enemy;
+    public List<Vector3Int> avalibleSpawnPoints = new List<Vector3Int>();
 
     public GameObject targetEnemy;
 
@@ -27,38 +26,47 @@ public class UnitManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        
+
+        EventManager.Instance.OnEnemyDeath += CheckEnemies;
+
+
+    }
+
+    void CheckEnemies()
+    {
+        if(enemyList.Count <= 0)
+        {
+            SpawnEnemies();
+        }
     }
 
     void SpawnEnemy(Vector3 pos)
     {
-        enemyList.Add(Instantiate(enemy, pos, Quaternion.identity));
+        enemyList.Add(Instantiate(enemyPrefab, pos, Quaternion.identity));
     }
 
     public void SpawnEnemies()
     {
-        numbersChosen = new List<int>();
-        for (int i = 0; i < 4; i++)
+        Shuffle(avalibleSpawnPoints);
+
+        for(int i = 0; i < 4; i++)
         {
-            bool okNumber = false;
-            int num = 0;
-            while (!okNumber)
-            {
-                num = Random.Range(0, enemySpawnPoints.Count);
+            SpawnEnemy(avalibleSpawnPoints[i]);
+        }
+    }
 
-                for(int j = 0; j < numbersChosen.Count; j++)
-                {
-                    if (numbersChosen[j] == num)
-                    {
-                        okNumber = false;
-                        break;
-                    }
-                    okNumber = true;
-                }
+    private static System.Random rng = new System.Random();
 
-            }
-            numbersChosen.Add(num);
-            SpawnEnemy(enemySpawnPoints[num]);
+    public void Shuffle( List<Vector3Int> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            Vector3Int value = list[k];
+            list[k] = list[n];
+            list[n] = value;
         }
     }
 

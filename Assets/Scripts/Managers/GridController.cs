@@ -46,8 +46,8 @@ public class GridController : MonoBehaviour
             {
                 if (SpawnPointMap.HasTile(new Vector3Int(x, y, 0)))
                 {
-                    UnitManager.Instance.enemySpawnPoints.Add(new Vector3Int(x, y, 0));
-                    //SpawnPointMap.SetTile(new Vector3Int(x, y, 0), null);
+                    UnitManager.Instance.avalibleSpawnPoints.Add(new Vector3Int(x, y, 0));
+                    SpawnPointMap.SetTile(new Vector3Int(x, y, 0), null);
                 }
 
                 if (FloorMap.HasTile(new Vector3Int(x, y, 0)))

@@ -65,4 +65,11 @@ public class EventManager : MonoBehaviour
     {
         OnPlayerDamage?.Invoke();
     }
+
+    public event Action OnEnemyDeath;
+
+    public void EnemyDeath()
+    {
+        OnEnemyDeath?.Invoke();
+    }
 }

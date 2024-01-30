@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
         if(lives <= 0)
         {
+            Destroy(gameObject);
             print("Player died");
         }
     }

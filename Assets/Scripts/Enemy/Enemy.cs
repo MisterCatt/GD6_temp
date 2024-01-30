@@ -16,13 +16,10 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector2(gridPosition.x + 0.5f, gridPosition.y + 0.5f);
     }
 
-    private void OnDestroy()
-    {
-        UnitManager.Instance.enemyList.Remove(gameObject);
-    }
-
     public void KillEnemy()
     {
+        UnitManager.Instance.enemyList.Remove(gameObject);
         Destroy(gameObject);
+        EventManager.Instance.EnemyDeath();
     }
 }
