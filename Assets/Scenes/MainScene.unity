@@ -837,7 +837,6 @@ GameObject:
   - component: {fileID: 898565355}
   - component: {fileID: 898565354}
   - component: {fileID: 898565356}
-  - component: {fileID: 898565357}
   m_Layer: 0
   m_Name: Screen2
   m_TagString: Untagged
@@ -935,21 +934,6 @@ MonoBehaviour:
   - {fileID: 1495642372}
   - {fileID: 97531866}
   - {fileID: 984510492}
---- !u!114 &898565357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898565353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e168e7141f3c7994abc60b1cee658e18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pulseSize: 1.05
-  returnSpeed: 5
-  ShouldPulse: 0
 --- !u!1 &984510492
 GameObject:
   m_ObjectHideFlags: 0

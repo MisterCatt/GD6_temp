@@ -151,6 +151,7 @@ public class Screen2Controller : MonoBehaviour
         {
             print("Enemy died");
             targetEnemy.KillEnemy();
+            targetEnemy = null;
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             EventManager.Instance.ChangeScreen();
             return;
@@ -159,6 +160,7 @@ public class Screen2Controller : MonoBehaviour
         if(playerLives <= 0)
         {
             print("Player took damage");
+            targetEnemy = null;
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             EventManager.Instance.ChangeScreen();
             UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
