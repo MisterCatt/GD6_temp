@@ -8,6 +8,8 @@ public class Screen2Controller : MonoBehaviour
     public Sprite[] picPlacePics;
     public GameObject[] picPlaces;
 
+    Enemy targetEnemy;
+
     bool[] sucessess;
 
     int step = 0, playerLives = 0, EnemyLives = 0;
@@ -28,7 +30,9 @@ public class Screen2Controller : MonoBehaviour
         if (GameManager.Instance.currentScreen != GameManager.ScreenFocus.LEFT)
             return;
 
-        for(int i = 0; i < picPlaces.Length; i++)
+        targetEnemy = UnitManager.Instance.targetEnemy.GetComponent<Enemy>();
+
+        for (int i = 0; i < picPlaces.Length; i++)
         {
             sucessess[i] = false;
             picPlaces[i].transform.GetChild(0).gameObject.SetActive(false);
@@ -146,6 +150,7 @@ public class Screen2Controller : MonoBehaviour
         if(EnemyLives <= 0)
         {
             print("Enemy died");
+            targetEnemy.KillEnemy();
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             EventManager.Instance.ChangeScreen();
             return;

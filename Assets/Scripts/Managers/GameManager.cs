@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnChangeGameState += ChangeGameState;
         EventManager.Instance.OnChangeScreen += ChangeScreen;
         currentScreen = ScreenFocus.LEFT;
-        screen1.GetComponent<Pulser>().ShouldPulse = true;
+        //screen1.GetComponent<Pulser>().ShouldPulse = true;
     }
 
     public void ChangeScreen()
@@ -32,13 +32,13 @@ public class GameManager : MonoBehaviour
         if (currentScreen == ScreenFocus.LEFT)
         {
             currentScreen = ScreenFocus.RIGHT;
-            screen1.GetComponent<Pulser>().ShouldPulse = false;
+            //screen1.GetComponent<Pulser>().ShouldPulse = false;
             screen2.GetComponent<Pulser>().ShouldPulse = true;
         }
         else
         {
             currentScreen = ScreenFocus.LEFT;
-            screen1.GetComponent<Pulser>().ShouldPulse = true;
+            //screen1.GetComponent<Pulser>().ShouldPulse = true;
             screen2.GetComponent<Pulser>().ShouldPulse = false;
         }
     }

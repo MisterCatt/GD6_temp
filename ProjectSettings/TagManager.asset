@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RythmChecker
   - RythmBlock
+  - Enemy
   layers:
   - Default
   - TransparentFX

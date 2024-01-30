@@ -44,6 +44,12 @@ public class GridController : MonoBehaviour
         {
             for (int y = bounds.yMin, j = 0; j < (bounds.size.y); y++, j++)
             {
+                if (SpawnPointMap.HasTile(new Vector3Int(x, y, 0)))
+                {
+                    UnitManager.Instance.enemySpawnPoints.Add(new Vector3Int(x, y, 0));
+                    //SpawnPointMap.SetTile(new Vector3Int(x, y, 0), null);
+                }
+
                 if (FloorMap.HasTile(new Vector3Int(x, y, 0)))
                 {
                     if (WallMap.HasTile(new Vector3Int(x, y, 0)))
@@ -61,6 +67,8 @@ public class GridController : MonoBehaviour
                 }
             }
         }
+
+        UnitManager.Instance.SpawnEnemies();
 
         print("Tilemap Created");
     }

@@ -18,6 +18,11 @@ public class Pulser : MonoBehaviour
         EventManager.Instance.OnBeat += Pulse;
     }
 
+    private void OnDestroy()
+    {
+        EventManager.Instance.OnBeat -= Pulse;
+    }
+
     // Update is called once per frame
     void Update()
     {
