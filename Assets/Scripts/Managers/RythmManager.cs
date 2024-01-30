@@ -10,6 +10,8 @@ public class RythmManager : MonoBehaviour
 {
     public static RythmManager Instance;
 
+    [SerializeField] AudioClip hundredTwentyBPM, hundredFiftyBPM;
+
     [SerializeField]
     float BPM = 120;
 
@@ -38,19 +40,20 @@ public class RythmManager : MonoBehaviour
     {
         if (changeBpm)
         {
-            ChangeBPM(BPM);
+            ChangeTo150();
             changeBpm = false;
             print("Beat changed");
         }
     }
 
-    public void ChangeBPM(float changeBPM)
+    public void ChangeTo150()
     {
-        CancelInvoke();
+        StopAllCoroutines();
+        music.clip = hundredFiftyBPM;
 
-        BPM = changeBPM;
+        BPM = 150;
 
-        InvokeRepeating("Beats", 60 / BPM, 60 / BPM);
+        StartCoroutine(Start());
     }
 
     IEnumerator Beats()
@@ -66,7 +69,7 @@ public class RythmManager : MonoBehaviour
 
     IEnumerator lingerBeat()
     {
-        yield return new WaitForSeconds(1/(60 / BPM));
+        yield return new WaitForSeconds(1f/(1f/2f));
         CurrentBeat = OnBeat.OFFBEAT;
     }
 

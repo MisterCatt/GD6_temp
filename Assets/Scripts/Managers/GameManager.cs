@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnChangeGameState += ChangeGameState;
         EventManager.Instance.OnChangeScreen += ChangeScreen;
         currentScreen = ScreenFocus.LEFT;
-        //screen1.GetComponent<Pulser>().ShouldPulse = true;
+
+
+        EventManager.Instance.Pause();
     }
 
     public void ChangeScreen()

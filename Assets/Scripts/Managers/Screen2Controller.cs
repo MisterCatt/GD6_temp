@@ -161,6 +161,7 @@ public class Screen2Controller : MonoBehaviour
             print("Player took damage");
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             EventManager.Instance.ChangeScreen();
+            UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
             return;
         }
 

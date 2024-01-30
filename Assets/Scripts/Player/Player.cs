@@ -14,18 +14,14 @@ public class Player : MonoBehaviour
     {
         UnitManager.Instance.player = gameObject;
         walkPoint.parent = null;
-
-        snapToGrid();
-
-        EventManager.Instance.OnPlayerDamage += playerDamage;
     }
 
     private void FixedUpdate()
     {
-        
+        snapToGrid();
     }
 
-    void playerDamage()
+    public void PlayerDamage()
     {
         lives--;
 
@@ -38,7 +34,7 @@ public class Player : MonoBehaviour
 
     void snapToGrid()
     {
-        Vector3Int gridPosition = GridController.WallMap.WorldToCell(transform.position);
+        Vector3Int gridPosition = GridController.FloorMap.WorldToCell(transform.position);
 
         transform.position = new Vector2(gridPosition.x + 0.5f, gridPosition.y + 0.5f);
         walkPoint.position = new Vector2(gridPosition.x + 0.5f, gridPosition.y + 0.5f);
