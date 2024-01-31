@@ -1136,6 +1136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseText: {fileID: 1353833869}
   rightArrow: {fileID: 2069068955}
+  scoreText: {fileID: 1654098022}
+  gameOverScoreText: {fileID: 293708040}
 --- !u!1 &898565353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,6 +2847,7 @@ MonoBehaviour:
   currentScreen: 0
   currentLevel: 0
   gameOverScreen: {fileID: 1123168996}
+  Score: 0
 --- !u!4 &1980907715
 Transform:
   m_ObjectHideFlags: 0
