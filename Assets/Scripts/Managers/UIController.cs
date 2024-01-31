@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor.UI;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class UIController : MonoBehaviour
 {
@@ -13,14 +14,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Image rightArrow;
 
-
     public static TextMeshProUGUI timerText;
 
     private void Start()
     {
         EventManager.Instance.OnChangeGameState += togglePauseText;
         EventManager.Instance.OnChangeScreen += toggleArrow;
-
 
         timerText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }

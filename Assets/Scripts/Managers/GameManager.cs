@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     public enum ScreenFocus { LEFT,RIGHT }
     public ScreenFocus currentScreen;
 
+    [SerializeField]
+    Level currentLevel = Level.ONE;
+
+    [SerializeField]
+    GameObject gameOverScreen;
+
     private void Awake()
     {
         Instance = this;
@@ -23,10 +29,39 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.OnChangeGameState += ChangeGameState;
         EventManager.Instance.OnChangeScreen += ChangeScreen;
+
+        EventManager.Instance.OnLevelComplete += nextLevel;
+
         currentScreen = ScreenFocus.LEFT;
 
-
         EventManager.Instance.Pause();
+    }
+
+    void nextLevel()
+    {
+        switch (currentLevel)
+        {
+            case Level.ONE:
+                currentLevel = Level.TWO;
+                break;
+            case Level.TWO:
+                currentLevel = Level.THREE;
+                break;
+            case Level.THREE:
+                currentLevel = Level.FOUR;
+                break;
+            case Level.FOUR:
+                currentLevel = Level.FIVE;
+                break;
+            case Level.FIVE:
+                GameOver();
+                break;
+        }
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 
     public void ChangeScreen()
@@ -34,14 +69,10 @@ public class GameManager : MonoBehaviour
         if (currentScreen == ScreenFocus.LEFT)
         {
             currentScreen = ScreenFocus.RIGHT;
-            //screen1.GetComponent<Pulser>().ShouldPulse = false;
-            screen2.GetComponent<Pulser>().ShouldPulse = true;
         }
         else
         {
             currentScreen = ScreenFocus.LEFT;
-            //screen1.GetComponent<Pulser>().ShouldPulse = true;
-            screen2.GetComponent<Pulser>().ShouldPulse = false;
         }
     }
 

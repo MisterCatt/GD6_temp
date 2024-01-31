@@ -5,12 +5,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public enum OnBeat { BEAT, OFFBEAT};
+public enum Level { ONE, TWO, THREE, FOUR, FIVE };
 
 public class RythmManager : MonoBehaviour
 {
+    [SerializeField]
+    Level currentLevel = Level.ONE;
+
     public static RythmManager Instance;
 
-    [SerializeField] AudioClip hundredTwentyBPM, hundredFiftyBPM;
+    [SerializeField] AudioClip song1, song2, song3, song4, song5;
 
     [SerializeField]
     float BPM = 120;
@@ -26,7 +30,9 @@ public class RythmManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+
+        EventManager.Instance.OnLevelComplete += ChangeLevel;
+
     }
 
     IEnumerator Start()
@@ -34,26 +40,6 @@ public class RythmManager : MonoBehaviour
         StartCoroutine(Beats());
         yield return new WaitForSeconds((60 / BPM) / 2);
         music.Play();
-    }
-
-    private void Update()
-    {
-        if (changeBpm)
-        {
-            ChangeTo150();
-            changeBpm = false;
-            print("Beat changed");
-        }
-    }
-
-    public void ChangeTo150()
-    {
-        StopAllCoroutines();
-        music.clip = hundredFiftyBPM;
-
-        BPM = 150;
-
-        StartCoroutine(Start());
     }
 
     IEnumerator Beats()
@@ -83,6 +69,41 @@ public class RythmManager : MonoBehaviour
         {
             music.Play();
         }  
+    }
+
+    void SwapMusic(AudioClip song, int bpm)
+    {
+        StopAllCoroutines();
+        music.clip = song;
+
+        BPM = bpm;
+
+        StartCoroutine(Start());
+    }
+
+    void ChangeLevel()
+    {
+        switch (currentLevel)
+        {
+            case Level.ONE:
+                SwapMusic(song2, 125);
+                currentLevel = Level.TWO;
+                break;
+            case Level.TWO:
+                SwapMusic(song3, 130);
+                currentLevel = Level.THREE;
+                break;
+            case Level.THREE:
+                SwapMusic(song4, 135);
+                currentLevel = Level.FOUR;
+                break;
+            case Level.FOUR:
+                SwapMusic(song5, 140);
+                currentLevel = Level.FIVE;
+                break;
+            case Level.FIVE:
+                break;
+        }
     }
     
 }

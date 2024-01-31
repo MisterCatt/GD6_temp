@@ -8,6 +8,11 @@ public class Screen2Controller : MonoBehaviour
     public Sprite[] picPlacePics;
     public GameObject[] picPlaces;
 
+    public GameObject[] playerLivesImages, enemyLivesImages;
+
+    [SerializeField]
+    GameObject playerBigPic, enemyBigPic;
+
     Enemy targetEnemy;
 
     bool[] sucessess;
@@ -50,6 +55,17 @@ public class Screen2Controller : MonoBehaviour
 
         playerLives = UnitManager.Instance.player.GetComponent<Player>().lives;
         EnemyLives = 3;
+
+        foreach(var life in enemyLivesImages)
+        {
+            if (!life.activeSelf)
+            {
+                life.SetActive(true);
+            }
+        }
+
+        enemyBigPic.SetActive(true);
+
         step = 0;
     }
 
@@ -137,6 +153,8 @@ public class Screen2Controller : MonoBehaviour
             if (sucessess[i] && picPlaces[i].GetComponent<SpriteRenderer>().sprite == picPlacePics[1])
             {
                 EnemyLives--;
+                if (EnemyLives >= 0)
+                    enemyLivesImages[EnemyLives].SetActive(false);
             }
 
             if(!sucessess[i] && picPlaces[i].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
@@ -153,6 +171,7 @@ public class Screen2Controller : MonoBehaviour
             targetEnemy.KillEnemy();
             targetEnemy = null;
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+            enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
             return;
         }
@@ -162,6 +181,8 @@ public class Screen2Controller : MonoBehaviour
             print("Player took damage");
             targetEnemy = null;
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+            playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
+            enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
             UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
             return;

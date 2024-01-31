@@ -50,6 +50,11 @@ public class Player : MonoBehaviour
         EventManager.Instance.ChangeScreen();
     }
 
+    void OnNextLevel()
+    {
+        EventManager.Instance.LevelComplete();
+    }
+
     void OnPause()
     {
         EventManager.Instance.Pause();

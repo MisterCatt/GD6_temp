@@ -72,4 +72,18 @@ public class EventManager : MonoBehaviour
     {
         OnEnemyDeath?.Invoke();
     }
+
+    public event Action OnLevelComplete;
+
+    public void LevelComplete()
+    {
+        OnLevelComplete?.Invoke();
+    }
+
+    public event Action OnGameOver;
+
+    public void GameOver()
+    {
+        OnGameOver?.Invoke();
+    }
 }

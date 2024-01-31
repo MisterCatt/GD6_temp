@@ -37,6 +37,7 @@ public class UnitManager : MonoBehaviour
         if(enemyList.Count <= 0)
         {
             SpawnEnemies();
+            EventManager.Instance.LevelComplete();
         }
     }
 
