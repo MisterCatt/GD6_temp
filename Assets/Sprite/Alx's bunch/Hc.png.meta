@@ -133,229 +133,19 @@ TextureImporter:
       name: Hc_0
       rect:
         serializedVersion: 2
-        x: 177
-        y: 843
-        width: 257
-        height: 314
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bb12b45ff679e6e20800000000000000
-      internalID: 3345778080295363003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_1
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 849
-        width: 81
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 154b9aac950ea72b0800000000000000
-      internalID: -5585905711542848431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_2
-      rect:
-        serializedVersion: 2
-        x: 534
-        y: 847
-        width: 227
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b8298ab54faf6a3e0800000000000000
-      internalID: -2042669453549202805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_3
-      rect:
-        serializedVersion: 2
-        x: 774
+        x: 171
         y: 844
-        width: 242
-        height: 319
+        width: 2133
+        height: 334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1d9dd659e8fed5750800000000000000
-      internalID: 6295451249805220305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_4
-      rect:
-        serializedVersion: 2
-        x: 1039
-        y: 849
-        width: 194
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c8018ffaa58a8260800000000000000
-      internalID: 7100634731980589251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_5
-      rect:
-        serializedVersion: 2
-        x: 1246
-        y: 851
-        width: 208
-        height: 312
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e6ba6723b63ddfe0800000000000000
-      internalID: -1162712985703368990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_6
-      rect:
-        serializedVersion: 2
-        x: 1472
-        y: 844
-        width: 237
-        height: 335
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29d99451d07d34df0800000000000000
-      internalID: -197077507482477166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_7
-      rect:
-        serializedVersion: 2
-        x: 1731
-        y: 852
-        width: 209
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bb072548b604210e0800000000000000
-      internalID: -2300705629107228485
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_8
-      rect:
-        serializedVersion: 2
-        x: 1962
-        y: 852
-        width: 228
-        height: 318
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6d693641a54034320800000000000000
-      internalID: 2540879399702730454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_9
-      rect:
-        serializedVersion: 2
-        x: 2207
-        y: 1051
-        width: 89
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 708886a84afd09210800000000000000
-      internalID: 1337814987118774279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hc_10
-      rect:
-        serializedVersion: 2
-        x: 2211
-        y: 849
-        width: 85
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6bc56ba23da26aa40800000000000000
-      internalID: 5379033891383696566
+      spriteID: 19f6013e63153df448fd842477463a6e
+      internalID: 1666958616
       vertices: []
       indices: 
       edges: []
@@ -363,14 +153,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e2416c3e7d6ab884bade7ddad43e9b87
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hc_0: 1666958616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

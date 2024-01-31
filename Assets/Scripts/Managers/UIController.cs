@@ -29,8 +29,8 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "Score: " + GameManager.Instance.Score;
-        gameOverScoreText.text = "Score: " + GameManager.Instance.Score;
+        scoreText.text = "     " + GameManager.Instance.Score;
+        gameOverScoreText.text = "     " + GameManager.Instance.Score;
     }
 
     void togglePauseText(GameManager.GameState s)
