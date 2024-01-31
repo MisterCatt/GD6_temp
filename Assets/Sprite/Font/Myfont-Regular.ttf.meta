@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 418630d2bb9036f4886564d9659e76b5
+guid: ee1cb1343b7bc4548a2db16e55618b35
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - mr game and watch
+  - Myfont
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
