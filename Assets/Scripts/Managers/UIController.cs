@@ -15,6 +15,9 @@ public class UIController : MonoBehaviour
     Image rightArrow;
 
     public static TextMeshProUGUI timerText;
+    public TextMeshProUGUI scoreText, gameOverScoreText;
+
+    
 
     private void Start()
     {
@@ -22,6 +25,12 @@ public class UIController : MonoBehaviour
         EventManager.Instance.OnChangeScreen += toggleArrow;
 
         timerText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Update()
+    {
+        scoreText.text = "Score: " + GameManager.Instance.Score;
+        gameOverScoreText.text = "Score: " + GameManager.Instance.Score;
     }
 
     void togglePauseText(GameManager.GameState s)

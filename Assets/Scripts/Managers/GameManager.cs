@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject gameOverScreen;
 
+    public int Score = 0;
+
     private void Awake()
     {
         Instance = this;
@@ -31,10 +33,18 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnChangeScreen += ChangeScreen;
 
         EventManager.Instance.OnLevelComplete += nextLevel;
+        EventManager.Instance.OnAddScore += AddScore;
+
+
 
         currentScreen = ScreenFocus.LEFT;
 
         EventManager.Instance.Pause();
+    }
+
+    void AddScore(int addedScore)
+    {
+        Score += addedScore;
     }
 
     void nextLevel()

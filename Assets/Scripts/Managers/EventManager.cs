@@ -86,4 +86,11 @@ public class EventManager : MonoBehaviour
     {
         OnGameOver?.Invoke();
     }
+
+    public event Action<int> OnAddScore;
+
+    public void AddScore(int score)
+    {
+        OnAddScore?.Invoke(score);
+    }
 }

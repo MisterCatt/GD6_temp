@@ -78,7 +78,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[0] = true;
-                    
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
             case 5:
@@ -86,7 +86,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[1] = true;
-                    
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
             case 6:
@@ -94,6 +94,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[2] = true;
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
             case 7:
@@ -101,7 +102,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[3] = true;
-                    
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
         }
@@ -116,7 +117,8 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[0] = true;
-                    
+                    EventManager.Instance.AddScore(25);
+
                 }
                 break;
             case 5:
@@ -124,7 +126,8 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[1] = true;
-                    
+                    EventManager.Instance.AddScore(25);
+
                 }
                 break;
             case 6:
@@ -132,7 +135,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[2] = true;
-                    
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
             case 7:
@@ -140,7 +143,7 @@ public class Screen2Controller : MonoBehaviour
                 {
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.green;
                     sucessess[3] = true;
-                    
+                    EventManager.Instance.AddScore(25);
                 }
                 break;
         }
@@ -160,6 +163,7 @@ public class Screen2Controller : MonoBehaviour
             if(!sucessess[i] && picPlaces[i].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
             {
                 playerLives--;
+                EventManager.Instance.AddScore(-25);
             }
 
             sucessess[i] = false;
@@ -173,6 +177,7 @@ public class Screen2Controller : MonoBehaviour
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
+            EventManager.Instance.AddScore(100);
             return;
         }
 
@@ -181,10 +186,18 @@ public class Screen2Controller : MonoBehaviour
             print("Player took damage");
             targetEnemy = null;
             UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
-            playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
             enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
             UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
+            playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
+            foreach (var life in enemyLivesImages)
+            {
+                if (life.activeSelf)
+                {
+                    life.SetActive(false);
+                }
+            }
+
             return;
         }
 
