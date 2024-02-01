@@ -50,6 +50,11 @@ public class Player : MonoBehaviour
         EventManager.Instance.ChangeScreen();
     }
 
+    void OnQuit()
+    {
+        Application.Quit();
+    }
+
     void OnNextLevel()
     {
         EventManager.Instance.LevelComplete();
