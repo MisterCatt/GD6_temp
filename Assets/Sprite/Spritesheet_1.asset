@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spritesheet_1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 60850309, guid: 017a9f6aa97ae694396d6cdb848fc9ff, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Transform:
     e00: 1
     e01: 0
