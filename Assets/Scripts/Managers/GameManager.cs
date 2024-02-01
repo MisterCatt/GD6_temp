@@ -71,6 +71,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameObject ui = GameObject.Find("UI");
+
+        for(int i= 0; i < ui.transform.childCount; i++)
+        {
+            ui.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         gameOverScreen.SetActive(true);
     }
 

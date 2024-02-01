@@ -77,13 +77,16 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if (RythmManager.Instance.CurrentBeat != OnBeat.BEAT)
-            return;
-
         Vector2 dir = value.Get<Vector2>();
 
         if (dir.x != 0 && dir.y != 0)
             return;
+
+        if (RythmManager.Instance.CurrentBeat != OnBeat.BEAT)
+        {
+            print("Movement not on beat");
+            return;
+        }
 
         walkPoint.position = new Vector3(transform.position.x + dir.x, transform.position.y + dir.y);
 
@@ -101,24 +104,19 @@ public class Player : MonoBehaviour
                 UnitManager.Instance.targetEnemy = hit.transform.gameObject;
 
                 EventManager.Instance.ChangeScreen();
-
-                if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
-                {
-                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
-                }
-
-                return;
             }
         }
-
-        if (GridController.FloorMap.HasTile(GridController.FloorMap.WorldToCell(walkPoint.position)))
+        else
         {
-            transform.position = walkPoint.transform.position;
-        }
+            if (GridController.FloorMap.HasTile(GridController.FloorMap.WorldToCell(walkPoint.position)))
+            {
+                transform.position = walkPoint.transform.position;
+            }
 
-        if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
-        {
-            RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+            if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
+            {
+                RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+            }
         }
     }
 }
