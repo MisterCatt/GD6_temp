@@ -82,6 +82,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[0] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 4:
@@ -90,6 +97,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[1] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 5:
@@ -98,6 +112,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[2] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 6:
@@ -106,6 +127,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[3] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
         }
@@ -121,7 +149,14 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[0] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
 
+                }
+                else
+                {
+                    picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 4:
@@ -130,7 +165,14 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[1] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
 
+                }
+                else
+                {
+                    picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 5:
@@ -139,6 +181,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[2] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
             case 6:
@@ -147,6 +196,13 @@ public class Screen2Controller : MonoBehaviour
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[1];
                     sucessess[3] = true;
                     EventManager.Instance.AddScore(25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
+                }
+                else
+                {
+                    picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
+                    EventManager.Instance.AddScore(-25);
+                    RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
                 }
                 break;
         }

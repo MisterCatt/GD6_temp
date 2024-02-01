@@ -72,12 +72,14 @@ public class Player : MonoBehaviour
 
     void OnSword()
     {
-        EventManager.Instance.Sword();
+        if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
+            EventManager.Instance.Sword();
     }
 
     void OnShield()
     {
-        EventManager.Instance.Shield();
+        if (RythmManager.Instance.CurrentBeat == OnBeat.BEAT)
+            EventManager.Instance.Shield();
     }
 
     void OnMove(InputValue value)
