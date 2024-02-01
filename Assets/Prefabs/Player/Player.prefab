@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkPoint: {fileID: 6035259346031747462}
   lives: 3
+  playerBigPic: {fileID: 0}
+  x: {fileID: 5251744956290624300, guid: e98d70e3ecd9fce409cf40f67496afd9, type: 3}
 --- !u!58 &7559659736580791380
 CircleCollider2D:
   m_ObjectHideFlags: 0

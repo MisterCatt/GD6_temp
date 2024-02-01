@@ -19,9 +19,6 @@ public class RythmManager : MonoBehaviour
     [SerializeField]
     float BPM = 120f;
 
-    [SerializeField]
-    bool changeBpm = false;
-
     public OnBeat CurrentBeat = OnBeat.OFFBEAT;
 
     [SerializeField]

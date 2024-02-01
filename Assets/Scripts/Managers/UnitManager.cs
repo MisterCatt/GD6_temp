@@ -22,8 +22,6 @@ public class UnitManager : MonoBehaviour
 
     public GameObject targetEnemy;
 
-    List<int> numbersChosen;
-
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -39,6 +37,7 @@ public class UnitManager : MonoBehaviour
         {
             SpawnEnemies();
             EventManager.Instance.LevelComplete();
+            if(player != null)
             player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
         }
     }

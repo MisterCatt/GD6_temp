@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     Level currentLevel = Level.ONE;
 
     [SerializeField]
-    GameObject gameOverScreen;
+    GameObject gameOverScreen, GameOverScreenText;
 
     public int Score = 0;
 
@@ -64,12 +65,26 @@ public class GameManager : MonoBehaviour
                 currentLevel = Level.FIVE;
                 break;
             case Level.FIVE:
-                GameOver();
+                GameOverWin();
                 break;
         }
     }
 
-    public void GameOver()
+    public void GameOverLoose()
+    {
+        GameObject ui = GameObject.Find("UI");
+
+        for (int i = 0; i < ui.transform.childCount; i++)
+        {
+            ui.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        GameOverScreenText.GetComponent<TextMeshProUGUI>().text = "You loose D:";
+
+        gameOverScreen.SetActive(true);
+    }
+
+    public void GameOverWin()
     {
         GameObject ui = GameObject.Find("UI");
 
@@ -130,7 +145,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         state = GameState.RUNNING;
-        UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+        if (UnitManager.Instance.player != null)
+            UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
         UIController.timerText.transform.gameObject.SetActive(false);
         EventManager.Instance.GameManagerUnPause();
         Time.timeScale = 1;

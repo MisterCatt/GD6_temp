@@ -21,7 +21,6 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.OnChangeGameState += togglePauseText;
-        EventManager.Instance.OnChangeScreen += toggleArrow;
 
         timerText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
@@ -39,14 +38,5 @@ public class UIController : MonoBehaviour
         else
             pauseText.transform.gameObject.SetActive(false);
     }
-
-    void toggleArrow()
-    {
-        //if(!rightArrow.IsActive())
-        //    rightArrow.gameObject.SetActive(true);
-        //else 
-        //    rightArrow.gameObject.SetActive(false);
-    }
-
 
 }

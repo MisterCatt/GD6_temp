@@ -20,6 +20,8 @@ public class Screen2Controller : MonoBehaviour
 
     bool[] sucessess;
 
+    public bool playerFailedShield = false;
+
     int step = 0, playerLives = 0, EnemyLives = 0;
 
     private void Start()
@@ -86,6 +88,7 @@ public class Screen2Controller : MonoBehaviour
                 }
                 else
                 {
+                    playerFailedShield = true;
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                     EventManager.Instance.AddScore(-25);
                     RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
@@ -101,6 +104,7 @@ public class Screen2Controller : MonoBehaviour
                 }
                 else
                 {
+                    playerFailedShield = true;
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                     EventManager.Instance.AddScore(-25);
                     RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
@@ -116,6 +120,7 @@ public class Screen2Controller : MonoBehaviour
                 }
                 else
                 {
+                    playerFailedShield = true;
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                     EventManager.Instance.AddScore(-25);
                     RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
@@ -131,6 +136,7 @@ public class Screen2Controller : MonoBehaviour
                 }
                 else
                 {
+                    playerFailedShield = true;
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                     EventManager.Instance.AddScore(-25);
                     RythmManager.Instance.CurrentBeat = OnBeat.OFFBEAT;
@@ -219,21 +225,34 @@ public class Screen2Controller : MonoBehaviour
                     enemyLivesImages[EnemyLives].SetActive(false);
             }
 
-            if(!sucessess[i] && picPlaces[i].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
-            {
-                playerLives--;
-                EventManager.Instance.AddScore(-25);
-            }
+            //if(!sucessess[i] && picPlaces[i].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
+            //{
+            //    UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
+            //    EventManager.Instance.PlayerDamage();
+            //    playerLives--;
+            //    EventManager.Instance.AddScore(-25);
+            //}
 
             sucessess[i] = false;
         }
 
-        if(EnemyLives <= 0)
+        if (playerFailedShield)
+        {
+            playerLives--;
+            UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
+            EventManager.Instance.PlayerDamage();
+            playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
+            EventManager.Instance.AddScore(-25);
+            playerFailedShield = false;
+        }
+
+        if (EnemyLives <= 0)
         {
             print("Enemy died");
             targetEnemy.KillEnemy();
             targetEnemy = null;
-            UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+            if(UnitManager.Instance.player != null)
+                UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
             EventManager.Instance.AddScore(100);
@@ -242,13 +261,13 @@ public class Screen2Controller : MonoBehaviour
 
         if(playerLives <= 0)
         {
-            print("Player took damage");
+            print("Player died!");
             targetEnemy = null;
-            UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
+            //UnitManager.Instance.player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
             enemyBigPic.SetActive(false);
             EventManager.Instance.ChangeScreen();
-            UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
-            playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
+            //UnitManager.Instance.player.GetComponent<Player>().PlayerDamage();
+            //playerLivesImages[UnitManager.Instance.player.GetComponent<Player>().lives].SetActive(false);
             foreach (var life in enemyLivesImages)
             {
                 if (life.activeSelf)
@@ -295,6 +314,10 @@ public class Screen2Controller : MonoBehaviour
 
                 if (sucessess[0] == false)
                 {
+                    if (picPlaces[0].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
+                    {
+                        playerFailedShield = true;
+                    }
                     picPlaces[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                 }
 
@@ -304,6 +327,11 @@ public class Screen2Controller : MonoBehaviour
 
                 if (sucessess[1] == false)
                 {
+                    if (picPlaces[1].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
+                    {
+                        playerFailedShield = true;
+                    }
+
                     picPlaces[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                 }
 
@@ -313,6 +341,11 @@ public class Screen2Controller : MonoBehaviour
 
                 if (sucessess[2] == false)
                 {
+                    if (picPlaces[2].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
+                    {
+                        playerFailedShield = true;
+                    }
+
                     picPlaces[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                 }
 
@@ -323,6 +356,11 @@ public class Screen2Controller : MonoBehaviour
 
                 if (sucessess[3] == false)
                 {
+                    if (picPlaces[3].GetComponent<SpriteRenderer>().sprite == picPlacePics[0])
+                    {
+                        playerFailedShield = true;
+                    }
+
                     picPlaces[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = picBackgroundPics[2];
                 }
                 break;

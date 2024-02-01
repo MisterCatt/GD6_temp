@@ -1650,6 +1650,7 @@ MonoBehaviour:
   - {fileID: 639570983}
   playerBigPic: {fileID: 1256167759}
   enemyBigPic: {fileID: 1243310759}
+  playerFailedShield: 0
 --- !u!1 &984510492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2393,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.95
+  m_fontSize: 24.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2430,7 +2431,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 15.422025, z: -48.271378, w: 0}
+  m_margin: {x: 0, y: 22.279703, z: -48.271378, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3588,6 +3589,7 @@ MonoBehaviour:
   currentScreen: 0
   currentLevel: 0
   gameOverScreen: {fileID: 1123168996}
+  GameOverScreenText: {fileID: 1304412985}
   Score: 0
 --- !u!4 &1980907715
 Transform:
@@ -4191,6 +4193,10 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: MapMovement
       objectReference: {fileID: 0}
+    - target: {fileID: 5698480095881978000, guid: b153e38745a930c408efc3af7d06bfea, type: 3}
+      propertyPath: playerBigPic
+      value: 
+      objectReference: {fileID: 1256167759}
     - target: {fileID: 6765730048017437666, guid: b153e38745a930c408efc3af7d06bfea, type: 3}
       propertyPath: pulseSize
       value: 1.5

@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public int lives = 3;
 
+    public GameObject playerBigPic;
+
     private void Start()
     {
         UnitManager.Instance.player = gameObject;
@@ -28,6 +30,11 @@ public class Player : MonoBehaviour
         if(lives <= 0)
         {
             Destroy(gameObject);
+
+            playerBigPic.SetActive(false);
+
+            GameManager.Instance.GameOverLoose();
+
             print("Player died");
         }
     }
