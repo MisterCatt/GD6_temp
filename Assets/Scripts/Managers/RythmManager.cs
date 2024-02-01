@@ -27,6 +27,8 @@ public class RythmManager : MonoBehaviour
     [SerializeField]
     AudioSource music;
 
+    bool isRunning = false;
+
     private void Awake()
     {
         Instance = this;
@@ -49,7 +51,11 @@ public class RythmManager : MonoBehaviour
             yield return new WaitForSeconds(1 / (BPM / 60));
             EventManager.Instance.Beat();
             CurrentBeat = OnBeat.BEAT;
-            StartCoroutine(lingerBeat());
+            if (!isRunning)
+            {
+                isRunning = true;
+                StartCoroutine(lingerBeat());
+            }
         }
     }
 
@@ -57,6 +63,7 @@ public class RythmManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f/(1f/2f));
         CurrentBeat = OnBeat.OFFBEAT;
+        isRunning = false;
     }
 
     public void Pause()

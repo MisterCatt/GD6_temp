@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UnitManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class UnitManager : MonoBehaviour
         {
             SpawnEnemies();
             EventManager.Instance.LevelComplete();
+            player.GetComponent<PlayerInput>().SwitchCurrentActionMap("MapMovement");
         }
     }
 
